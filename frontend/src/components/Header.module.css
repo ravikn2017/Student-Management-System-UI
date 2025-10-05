@@ -16,6 +16,12 @@
   z-index: 999;
 }
 
+@media (max-width: 1200px) {
+  .header {
+    left: 80px;
+  }
+}
+
 .leftSection {
   display: flex;
   align-items: center;
@@ -190,4 +196,64 @@
 .userRole {
   font-size: 12px;
   color: #64748b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    left: 60px;
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .centerSection {
+    display: none;
+  }
+
+  .rightSection {
+    gap: 12px;
+  }
+
+  .languageSelector {
+    display: none;
+  }
+
+  .notificationButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .userProfile {
+    padding: 6px 8px;
+  }
+
+  .profileInfo {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .rightSection {
+    gap: 8px;
+  }
+
+  .notificationButton {
+    width: 36px;
+    height: 36px;
+  }
+
+  .notificationIcon {
+    font-size: 18px;
+  }
 }

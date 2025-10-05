@@ -10,6 +10,9 @@
   );
   display: flex;
   position: relative;
+  /* Touch-friendly scrolling */
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
 }
 
 .mainContent {
@@ -18,6 +21,12 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+@media (max-width: 1200px) {
+  .mainContent {
+    margin-left: 80px;
+  }
 }
 
 .dashboardContent {
@@ -107,6 +116,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: none;
+  /* Touch-friendly */
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .primaryButton {
@@ -515,6 +529,11 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* Touch-friendly */
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .spotlightButton:hover {
@@ -742,17 +761,26 @@
   .heroContent {
     grid-template-columns: 1fr;
     gap: 40px;
+    text-align: center;
   }
 
   .spotlightContent {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .mainContent {
-    margin-left: 0;
+    margin-left: 60px;
   }
 
   .dashboardContent {
@@ -768,37 +796,301 @@
     padding: 40px 20px;
   }
 
-  .graphsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .graphsTitle {
-    font-size: 32px;
-  }
-
   .heroTitle {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .sectionTitle {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .spotlightTitle {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .featuresGrid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .quickStatsGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .heroButtons {
     flex-direction: column;
     align-items: stretch;
+    gap: 12px;
   }
 
   .primaryButton,
   .secondaryButton {
     justify-content: center;
+    padding: 14px 20px;
+  }
+
+  .floatingElements {
+    display: none;
+  }
+
+  .heroImage {
+    height: 250px;
+  }
+
+  .spotlightImg {
+    height: 250px;
+  }
+
+  .spotlightStats {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .statCard {
+    padding: 20px;
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .statIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .statNumber {
+    font-size: 24px;
+  }
+
+  .featureCard {
+    padding: 24px 20px;
+  }
+
+  .quickStatCard {
+    padding: 20px 16px;
+  }
+
+  .graphsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .graphsTitle {
+    font-size: 24px;
+  }
+
+  .graphCard {
+    padding: 20px 16px;
+  }
+
+  .graphContainer {
+    height: 200px;
+  }
+
+  .graphCardTitle h3 {
+    font-size: 16px;
+  }
+
+  .graphCardTitle p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection,
+  .statsSection,
+  .featuresSection,
+  .spotlightSection,
+  .quickStatsSection,
+  .graphsSection {
+    padding: 30px 16px;
+  }
+
+  .dashboardContent {
+    padding: 70px 0 0;
+  }
+
+  .heroTitle {
+    font-size: 24px;
+  }
+
+  .heroSubtitle {
+    font-size: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+  }
+
+  .spotlightTitle {
+    font-size: 20px;
+  }
+
+  .statNumber {
+    font-size: 20px;
+  }
+
+  .statLabel {
+    font-size: 14px;
+  }
+
+  .quickStatCard {
+    padding: 20px 16px;
+  }
+
+  .quickStatNumber {
+    font-size: 20px;
+  }
+
+  .featureCard {
+    padding: 20px 16px;
+  }
+
+  .featureTitle {
+    font-size: 18px;
+  }
+
+  .featureDescription {
+    font-size: 14px;
+  }
+
+  .heroImage {
+    height: 200px;
+  }
+
+  .spotlightImg {
+    height: 200px;
+  }
+
+  .graphsTitle {
+    font-size: 20px;
+  }
+
+  .graphCard {
+    padding: 16px 12px;
+  }
+
+  .graphContainer {
+    height: 180px;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroSection,
+  .statsSection,
+  .featuresSection,
+  .spotlightSection,
+  .quickStatsSection,
+  .graphsSection {
+    padding: 20px 12px;
+  }
+
+  .heroTitle {
+    font-size: 20px;
+  }
+
+  .heroSubtitle {
+    font-size: 14px;
+  }
+
+  .sectionTitle {
+    font-size: 18px;
+  }
+
+  .spotlightTitle {
+    font-size: 18px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .heroImage {
+    height: 180px;
+  }
+
+  .spotlightImg {
+    height: 180px;
+  }
+
+  .statCard {
+    padding: 16px 12px;
+  }
+
+  .featureCard {
+    padding: 16px 12px;
+  }
+
+  .quickStatCard {
+    padding: 16px 12px;
+  }
+
+  .graphsTitle {
+    font-size: 18px;
+  }
+
+  .graphCard {
+    padding: 12px 8px;
+  }
+
+  .graphContainer {
+    height: 160px;
+  }
+}
+
+/* Landscape orientation optimizations for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .dashboardContent {
+    padding: 60px 0 0;
+  }
+
+  .heroSection {
+    padding: 20px 16px;
+  }
+
+  .heroContent {
+    gap: 20px;
+  }
+
+  .heroImage {
+    height: 150px;
+  }
+
+  .spotlightImg {
+    height: 150px;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .heroImg,
+  .spotlightImg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .floatingCard {
+    animation: none;
+  }
+
+  .loadingSpinner {
+    animation: none;
   }
 }

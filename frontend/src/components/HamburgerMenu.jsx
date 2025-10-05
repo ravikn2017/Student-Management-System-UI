@@ -1,19 +1,19 @@
 // import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  Business,
-  TrendingUp,
+  Dashboard,
+  School,
+  People,
+  Person,
   AccountBalance,
-  PieChart,
+  Class,
+  Assignment,
+  DirectionsBus,
+  Notifications,
   Settings,
   Help,
   Logout,
   Close,
-  BarChart,
-  MonetizationOn,
-  FolderOpen,
-  ShowChart,
-  Timeline,
 } from "@mui/icons-material";
 import styles from "./HamburgerMenu.module.css";
 // import Logger from "../utils/logger.js";
@@ -22,40 +22,16 @@ const HamburgerMenu = ({ isOpen, onToggle }) => {
   const navigate = useNavigate();
 
   const menuItems = [
-    {
-      icon: <Business />,
-      label: "Student Details",
-      path: "/student/details",
-    },
-    {
-      icon: <ShowChart />,
-      label: "Academic Records",
-      path: "/academic-records",
-    },
-    {
-      icon: <BarChart />,
-      label: "Grades & Performance",
-      path: "/grades",
-    },
-    {
-      icon: <MonetizationOn />,
-      label: "Attendance",
-      path: "/attendance",
-    },
-    {
-      icon: <Timeline />,
-      label: "Course History",
-      path: "/course-history",
-    },
-    {
-      icon: <FolderOpen />,
-      label: "Student Portfolio",
-      path: "/student-portfolio",
-    },
-    { icon: <AccountBalance />, label: "Academic Reports", path: "/reports" },
-    { icon: <PieChart />, label: "Analytics", path: "/analytics" },
+    { icon: <Dashboard />, label: "Dashboard", path: "/" },
+    { icon: <School />, label: "Students", path: "/students" },
+    { icon: <People />, label: "Teachers", path: "/teachers" },
+    { icon: <Person />, label: "Parents", path: "/parents" },
+    { icon: <AccountBalance />, label: "Account", path: "/account" },
+    { icon: <Class />, label: "Class", path: "/class" },
+    { icon: <Assignment />, label: "Exam", path: "/exam" },
+    { icon: <DirectionsBus />, label: "Transport", path: "/transport" },
+    { icon: <Notifications />, label: "Notice", path: "/notice" },
     { icon: <Settings />, label: "Settings", path: "/settings" },
-    { icon: <Help />, label: "Help & Support", path: "/help" },
   ];
 
   const handleMenuClick = (path) => {
