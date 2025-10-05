@@ -1,0 +1,629 @@
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(248, 250, 252, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+  z-index: 900;
+}
+
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* Extreme Left - Back Button */
+.extremeLeft {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  min-width: 200px; /* Increased to accommodate "Back to Dashboard" */
+  width: 200px;
+}
+
+/* Center Section */
+.centerSection {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Extreme Right - Portfolio Manager */
+.extremeRight {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  min-width: 250px; /* Reserve space for portfolio manager to maintain consistent centering */
+  width: 250px;
+  justify-content: flex-end;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.menuButton:hover {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+  transform: scale(1.1);
+}
+
+.backButton {
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.15) 0%,
+    rgba(41, 128, 185, 0.1) 100%
+  );
+  border: 1px solid rgba(52, 152, 219, 0.25);
+  color: #ecf0f1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.backButton:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.25) 0%,
+    rgba(41, 128, 185, 0.2) 100%
+  );
+  border-color: rgba(52, 152, 219, 0.4);
+  color: #3498db;
+  transform: translateX(-2px);
+  box-shadow: 0 4px 16px rgba(52, 152, 219, 0.3);
+}
+
+.backButton span {
+  font-size: 0.9rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #3498db 30%, #2ecc71 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pageName {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+  margin-top: -2px;
+}
+
+.navItems {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.navItem:hover {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  transform: translateY(-2px);
+}
+
+/* Note: rightSection removed - using extremeLeft/centerSection/extremeRight layout */
+
+.notificationButton {
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.notificationButton:hover {
+  background: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #e74c3c;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* User Section */
+.userSection {
+  position: relative;
+}
+
+.userButton {
+  background: linear-gradient(
+    135deg,
+    rgba(46, 204, 113, 0.12) 0%,
+    rgba(39, 174, 96, 0.08) 100%
+  );
+  border: 1px solid rgba(46, 204, 113, 0.2);
+  color: #ecf0f1;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(46, 204, 113, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.userButton:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(46, 204, 113, 0.2) 0%,
+    rgba(39, 174, 96, 0.15) 100%
+  );
+  border-color: rgba(46, 204, 113, 0.35);
+  box-shadow: 0 4px 16px rgba(46, 204, 113, 0.25);
+  transform: translateY(-1px);
+}
+
+.backButton span {
+  font-size: 0.9rem;
+}
+
+.backButton {
+  padding: 8px;
+  margin-right: 8px;
+}
+
+.avatar {
+  font-size: 32px !important;
+  color: #3498db;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.userName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ecf0f1;
+}
+
+.userRole {
+  font-size: 0.8rem;
+  color: #bdc3c7;
+  font-weight: 400;
+}
+
+.dropdownArrow {
+  transition: transform 0.3s ease;
+  font-size: 20px !important;
+}
+
+.userButton:hover .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+/* User Dropdown */
+.userDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: linear-gradient(
+    135deg,
+    rgba(44, 62, 80, 0.98) 0%,
+    rgba(52, 73, 94, 0.98) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 8px 0;
+  z-index: 1000;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownItem {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #bdc3c7;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.dropdownItem:hover {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 899;
+}
+
+/* Responsive Design */
+
+/* Large screens - Better space utilization */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 2000px;
+    gap: 40px;
+  }
+
+  .centerSection {
+    gap: 40px;
+  }
+
+  .logoText {
+    font-size: 1.6rem;
+  }
+
+  .navItems {
+    gap: 16px;
+  }
+}
+
+/* Medium to large screens */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .container {
+    gap: 24px;
+  }
+
+  .centerSection {
+    gap: 28px;
+  }
+}
+
+/* Medium screens - start hiding nav text */
+@media (max-width: 1200px) {
+  .navItems {
+    gap: 6px;
+  }
+
+  .navItem {
+    padding: 8px; /* Square padding for icon-only buttons */
+    min-width: 40px;
+    justify-content: center;
+  }
+
+  .navItemText {
+    display: none; /* Hide text on medium screens for better spacing */
+  }
+}
+
+/* Medium-small screens - hide back button text to prevent wrapping */
+@media (max-width: 1024px) {
+  .extremeLeft {
+    min-width: 80px;
+    width: 80px;
+  }
+
+  .backButton span {
+    display: none; /* Hide back button text earlier to prevent wrapping */
+  }
+
+  .backButton {
+    padding: 8px; /* Square padding when text is hidden */
+    justify-content: center;
+  }
+}
+
+/* Tablet landscape */
+@media (max-width: 1023px) {
+  .container {
+    gap: 16px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .extremeRight {
+    min-width: 200px;
+    width: 200px;
+  }
+
+  .centerSection {
+    gap: 20px;
+  }
+
+  .navItems {
+    gap: 6px; /* Icon-only spacing */
+  }
+
+  .navItem {
+    padding: 8px; /* Square padding for icon-only buttons */
+    min-width: 40px;
+    justify-content: center;
+  }
+
+  .navItemText {
+    display: none; /* Hide text labels, show only icons */
+  }
+
+  .logoText {
+    font-size: 1.3rem;
+  }
+}
+
+/* Tablets and below - hide KeyMetrics completely to prevent navbar overlap */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+    gap: 12px;
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .extremeLeft {
+    min-width: 60px;
+    width: 60px;
+  }
+
+  .extremeRight {
+    min-width: 120px;
+    width: 120px;
+  }
+
+  .centerSection {
+    gap: 16px;
+    justify-content: center;
+    /* KeyMetrics is hidden on this breakpoint, so center section has more space */
+  }
+
+  .logoText {
+    font-size: 1.2rem;
+  }
+
+  .pageName {
+    font-size: 0.65rem;
+  }
+
+  .userInfo {
+    display: none;
+  }
+
+  .avatar {
+    font-size: 28px !important;
+  }
+
+  .menuButton,
+  .notificationButton {
+    padding: 8px;
+  }
+
+  .userButton {
+    padding: 6px 8px;
+    gap: 8px;
+  }
+
+  .dropdownArrow {
+    font-size: 18px !important;
+  }
+}
+
+/* Small mobile screens - extra compact */
+@media (max-width: 480px) {
+  .navbar {
+    height: 60px;
+  }
+
+  .container {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .extremeLeft {
+    min-width: 60px;
+    width: 60px;
+  }
+
+  .extremeRight {
+    min-width: 80px;
+    width: 80px;
+    justify-content: flex-end;
+  }
+
+  .logoText {
+    font-size: 1.1rem;
+  }
+
+  .pageName {
+    font-size: 0.6rem;
+  }
+
+  .centerSection {
+    gap: 8px; /* Reduced gap for mobile */
+  }
+
+  .menuButton,
+  .notificationButton {
+    padding: 6px;
+  }
+
+  /* User section mobile styles */
+  .userButton {
+    padding: 4px 6px;
+    gap: 6px;
+    border-radius: 8px;
+    min-width: unset;
+  }
+
+  .avatar {
+    font-size: 24px !important; /* Smaller avatar for mobile */
+  }
+
+  .userInfo {
+    display: none; /* Hide user info text completely on mobile */
+  }
+
+  .dropdownArrow {
+    font-size: 16px !important; /* Smaller dropdown arrow */
+  }
+
+  .notificationButton {
+    padding: 4px;
+  }
+
+  .badge {
+    font-size: 0.6rem;
+    padding: 1px 4px;
+    min-width: 14px;
+  }
+}
+
+/* iPhone SE and smaller screens - ultra compact */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .extremeLeft {
+    min-width: 50px;
+    width: 50px;
+  }
+
+  .extremeRight {
+    min-width: 70px;
+    width: 70px;
+  }
+
+  .logoText {
+    font-size: 1rem;
+  }
+
+  .pageName {
+    font-size: 0.55rem;
+  }
+
+  .avatar {
+    font-size: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .userButton {
+    padding: 3px 5px;
+    gap: 4px;
+  }
+
+  .dropdownArrow {
+    font-size: 14px !important;
+  }
+
+  .menuButton,
+  .notificationButton {
+    padding: 4px;
+  }
+
+  .badge {
+    font-size: 0.55rem;
+    padding: 1px 3px;
+    min-width: 12px;
+  }
+}

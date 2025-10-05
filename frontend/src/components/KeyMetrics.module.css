@@ -1,0 +1,207 @@
+/* KeyMetrics Component Styles */
+
+.keyMetrics {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.08) 0%,
+    rgba(41, 128, 185, 0.05) 100%
+  );
+  border: 1px solid rgba(52, 152, 219, 0.15);
+  transition: all 0.3s ease;
+  cursor: default;
+  min-width: fit-content;
+  white-space: nowrap;
+}
+
+.metric:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(52, 152, 219, 0.12) 0%,
+    rgba(41, 128, 185, 0.08) 100%
+  );
+  border-color: rgba(52, 152, 219, 0.25);
+  transform: translateY(-1px);
+}
+
+.metricIcon {
+  font-size: 16px !important;
+  color: #3498db;
+  flex-shrink: 0;
+}
+
+.metricValue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ecf0f1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.refreshButton {
+  background: none;
+  border: none;
+  color: #bdc3c7;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+
+.refreshButton:hover {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  transform: rotate(180deg);
+}
+
+.refreshIcon {
+  font-size: 14px !important;
+}
+
+/* Responsive Design */
+
+/* Large screens - show all metrics with full spacing */
+@media (min-width: 1400px) {
+  .keyMetrics {
+    gap: 24px;
+  }
+
+  .metric {
+    padding: 6px 12px;
+  }
+
+  .metricValue {
+    font-size: 0.9rem;
+  }
+}
+
+/* Medium to large screens - standard spacing */
+@media (min-width: 1024px) and (max-width: 1399px) {
+  .keyMetrics {
+    gap: 18px;
+  }
+
+  .metric {
+    padding: 5px 10px;
+  }
+}
+
+/* Medium screens - compact metrics */
+@media (max-width: 1200px) {
+  .keyMetrics {
+    gap: 12px;
+  }
+
+  .metric {
+    padding: 4px 8px;
+  }
+
+  .metricValue {
+    font-size: 0.8rem;
+  }
+
+  .metricIcon {
+    font-size: 14px !important;
+  }
+}
+
+/* Small to medium screens - hide text, show icons only */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .keyMetrics {
+    gap: 8px;
+  }
+
+  .metric {
+    padding: 6px;
+    min-width: 32px;
+    justify-content: center;
+  }
+
+  .metricValue {
+    display: none; /* Hide text on smaller screens */
+  }
+
+  .metricIcon {
+    font-size: 16px !important;
+  }
+}
+
+/* Tablets and below - hide KeyMetrics completely to prevent navbar overlap */
+@media (max-width: 768px) {
+  .keyMetrics {
+    display: none; /* Completely hide on tablets and below */
+  }
+}
+
+/* Loading and Error States */
+.keyMetrics .metric:has(.metricValue:contains("Loading")) {
+  background: linear-gradient(
+    135deg,
+    rgba(241, 196, 15, 0.08) 0%,
+    rgba(230, 126, 34, 0.05) 100%
+  );
+  border-color: rgba(241, 196, 15, 0.15);
+}
+
+.keyMetrics .metric:has(.metricValue:contains("N/A")) {
+  background: linear-gradient(
+    135deg,
+    rgba(149, 165, 166, 0.08) 0%,
+    rgba(127, 140, 141, 0.05) 100%
+  );
+  border-color: rgba(149, 165, 166, 0.15);
+}
+
+.keyMetrics .metric:has(.metricValue:contains("Unavailable")) {
+  background: linear-gradient(
+    135deg,
+    rgba(231, 76, 60, 0.08) 0%,
+    rgba(192, 57, 43, 0.05) 100%
+  );
+  border-color: rgba(231, 76, 60, 0.15);
+}
+
+/* Hover effects for different states */
+.keyMetrics .metric:has(.metricValue:contains("Loading")):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(241, 196, 15, 0.12) 0%,
+    rgba(230, 126, 34, 0.08) 100%
+  );
+  border-color: rgba(241, 196, 15, 0.25);
+}
+
+.keyMetrics .metric:has(.metricValue:contains("N/A")):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(149, 165, 166, 0.12) 0%,
+    rgba(127, 140, 141, 0.08) 100%
+  );
+  border-color: rgba(149, 165, 166, 0.25);
+}
+
+.keyMetrics .metric:has(.metricValue:contains("Unavailable")):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(231, 76, 60, 0.12) 0%,
+    rgba(192, 57, 43, 0.08) 100%
+  );
+  border-color: rgba(231, 76, 60, 0.25);
+}
